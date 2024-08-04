@@ -2,7 +2,13 @@
 
 El archivo `SQL_Query` contiene la respuesta a la parte uno.
 
-El código de la página web solicitada en la segunda parte se encuentra en la carpeta `ricknmorty`. La aplicación web ha sido hospedada en Vercel y se puede revisar en [https://react-fixeat.vercel.app/](https://react-fixeat.vercel.app/).
+El código de la página web solicitada en la segunda parte se encuentra en la carpeta `ricknmorty`. La aplicación web ha sido hosteada en Vercel y se puede revisar en el siguiente link [https://react-fixeat.vercel.app/](https://react-fixeat.vercel.app/).
+
+Para correr manualmente
+1. Instalar dependencias
+`npm i`
+2. Iniciar aplicación
+`npm start`
 
 ## Herramientas Utilizadas
 
