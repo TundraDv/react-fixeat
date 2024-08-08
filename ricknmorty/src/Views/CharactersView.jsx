@@ -38,7 +38,7 @@ function CharactersView() {
 
 
   return (
-    <Box sx={{ padding: 10, width: "100%", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <Box sx={{ paddingY: 5, width: "100%", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <Box sx={{ width: "70%", textAlign: 'center'}}>
         <Typography variant="h2" sx={{ marginY: 2}}> 
             <b>
