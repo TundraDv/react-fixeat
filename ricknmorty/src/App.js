@@ -27,10 +27,10 @@ const router = createBrowserRouter([
   {
     path: "Character/:id",
     element: 
-    <>
+    <CharactersProvider>
       <Navbar/>
       <CharacterDetailsView/>
-    </>
+    </CharactersProvider>
   }
 ]);
 

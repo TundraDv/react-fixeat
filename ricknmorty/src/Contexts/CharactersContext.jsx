@@ -1,18 +1,25 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useRef } from 'react';
 
 const CharactersContext = createContext();
 
-const URL_API = "https://rickandmortyapi.com/api/character?page="
+const URL_API = "https://rickandmortyapi.com/api/character?page=";
 
 export function CharactersProvider({ children }) {
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const cache = useRef({});
 
   useEffect(() => {
     const fetchAllData = async () => {
       setLoading(true);
       try {
+        if (cache.current['allCharacters']) {
+          setCharacters(cache.current['allCharacters']);
+          setLoading(false);
+          return;
+        }
+        
         let allCharacters = [];
         for (let currentPage = 1; ; currentPage++) {
           const response = await fetch(`${URL_API}${currentPage}`);
@@ -23,6 +30,9 @@ export function CharactersProvider({ children }) {
           allCharacters = [...allCharacters, ...result.results];
           if (!result.info.next) break;
         }
+
+        cache.current['allCharacters'] = allCharacters;
+
         setCharacters(allCharacters);
       } catch (error) {
         setError(error.message);
